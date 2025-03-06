@@ -1,57 +1,54 @@
 #include <stdio.h>
-
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
-
 int main() {
-    // Sugestão: Defina variáveis separadas para cada atributo da cidade.
-    // Exemplos de atributos: código da cidade, nome, população, área, PIB, número de pontos turísticos.
-  char codigo[50];
+  //variaveis do jogo 
+  char estado[50];
   char nome[50];
+  char codigo[3];
   int populacao;
-  int area;
-  int pib;
+  float area;
+  float pib;
   int lazer;
-  
+  float densidade;
+  float pibcapita;
+  //exibe o titulo
   printf("                                                       ==JOGO DO TRUNFO==\n");
-  printf("Digite o codigo da cidade:\n");  
-  scanf("%s", codigo);
+  
+  //começa pedindo informações ao usuario
+  printf("Digite o estado:\n");  
+  scanf("%s", estado);
   
   printf("Digite o nome da cidade:\n");
   scanf("%s", nome);
   
-
+  printf("Digite o codigo da carta:\n");
+  scanf("%s", codigo);
+  
   printf("Qual o tamanho da população?\n");
   scanf("%d", &populacao);
     
   printf("Digite o tamanho da área:\n");
-  scanf("%d", &area);
+  scanf(" %f", &area);
     
   printf("Digite o PIB:\n");
-  scanf("%d", &pib);
+  scanf(" %f", &pib);
     
   printf("Digite o numeros de pontos turisticos:\n");
-  scanf("%d", &lazer);
-   
+  scanf(" %d", &lazer);
+ 
+  densidade = (float) populacao / area;
+  pibcapita = (float)pib / populacao;
+
+  //mostra ao usuario os dados das cartas inseridas
   printf("***_Dados das cartas_***\n");
   
-  printf("codigo:%s\n", codigo);
+  printf("Estado:%s\n", estado);
   printf("Nome:%s\n", nome);
+  printf("Codigo:%s\n", codigo);
   printf("População:%d\n", populacao);
-  printf("Área:%d\n", area);
-  printf("PIB:%d\n", pib); 
+  printf("Área:%f\n", area);
+  printf("PIB:%f\n", pib); 
   printf("Pontos turisticos:%d\n", lazer);
- 
-    // Cadastro das Cartas:
-    // Sugestão: Utilize a função scanf para capturar as entradas do usuário para cada atributo.
-    // Solicite ao usuário que insira as informações de cada cidade, como o código, nome, população, área, etc.
-    
-    // Exibição dos Dados das Cartas:
-    // Sugestão: Utilize a função printf para exibir as informações das cartas cadastradas de forma clara e organizada.
-    // Exiba os valores inseridos para cada atributo da cidade, um por linha.
-
-    return 0;
+  printf("Densidade populacional:%.3f habitantes/km²\n", densidade);
+  printf("PIB per capita:R$%.3f\n", pibcapita);
+  return 0;
 }
